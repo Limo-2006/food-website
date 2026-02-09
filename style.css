@@ -28,6 +28,12 @@ nav a {
 }
 nav a:hover { color: #ff4b4b; }
 
+.hamburger {
+  display: none; /* hide by default */
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 
 .hero {
   height: 100vh;
@@ -420,7 +426,7 @@ font-size: 1.2rem;
     margin-top: 10px;
 }
 
-@media (max-width:650) {
+@media (max-width: 650px) {
 .articles-grid {
 grid-template-columns: 1fr;
 }
@@ -548,14 +554,24 @@ section {
   }
 
   /* ABOUT */
+  .about {
+    padding: 60px 20px;
+  }
+
   .about-container {
     grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .about-content {
+    text-align: center;
   }
 
   .about-content h2 {
     font-size: 28px;
-    text-align: center;
+    padding: 0;
   }
+
 
   /* SERVICES */
   .service-title {
@@ -581,12 +597,35 @@ section {
   /* REVIEWS */
   .review-categories {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 
-  .articles-grid {
-    grid-template-columns: 1fr;
+  .review-category {
+    font-size: 16px;
+    padding: 20px;
   }
 
+ .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 15px;
+  }
+
+  .article-card img {
+    height: 140px;
+  }
+
+  .large-card {
+    grid-row: span 1;
+  }
+
+  .large-card img {
+    height: 160px;
+  }
+
+  .card-content h2 {
+    font-size: 0.9rem;
+  }
   .contact-wrapper {
     flex-direction: column;
   }
@@ -623,10 +662,60 @@ section {
   .food-text h2 {
     font-size: 22px;
   }
+.articles-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 12px;
+  }
 
+  .article-card img {
+    height: 130px;
+    object-fit: cover;
+  }
+
+  .large-card {
+    grid-row: span 1;
+  }
+
+  .large-card img {
+    height: 160px;
+  }
+
+  .card-content {
+    padding: 12px;
+  }
+
+  .card-content h2 {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .card-content .date {
+    font-size: 0.75rem;
+  }
   .contact-title {
     font-size: 28px;
   }
 }
 
+@media screen and (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    width: 200px;
+    border: 1px solid #ddd;
+    display: none; /* hidden initially */
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
 

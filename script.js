@@ -1,9 +1,13 @@
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 const overlay = document.getElementById('overlay');
+const toggle = document.querySelector('.menu-toggle');
 
 // toggle menu
 hamburger.addEventListener('click', () => {
+  toggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
   navMenu.classList.toggle('show');
   overlay.classList.toggle('show');
 });

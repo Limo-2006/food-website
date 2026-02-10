@@ -433,7 +433,13 @@ grid-template-columns: 1fr;
 .hero {
 height: 60vh;
 }
+
+.hamburger {
+
+  display: block;
+} 
 }
+
 
 section {
   scroll-margin-top: 100px;
@@ -524,29 +530,93 @@ section {
   background: #c72f3c;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
   header {
-    flex-direction: column;
-    padding: 10px 20px;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
+  /* Hamburger right corner */
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    z-index: 1001;
+  }
+
+  /* Mobile menu left side */
+  @media screen and (max-width: 768px) {
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* Hamburger right corner */
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    font-size: 1.6rem;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  /* Overlay background */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 999;
+  }
+
+  .overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Mobile menu left side */
   nav {
-    margin-top: 10px;
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 240px;
+    height: 100vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 25px;
+    gap: 18px;
+    transition: 0.35s ease;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+    z-index: 1000;
   }
 
   nav a {
-    margin: 0 10px;
-    font-size: 14px;
+    font-size: 18px;
+    color: #333;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    transition: 0.2s;
   }
 
-  .hero h1 {
-    font-size: 28px;
+  nav a:hover {
+    color: #ff4b4b;
+    padding-left: 8px;
   }
 
-  .hero p {
-    font-size: 14px;
+  /* When active */
+  nav.show {
+    left: 0;
   }
+}
+
 
   /* MENU */
   .menu-categories {
